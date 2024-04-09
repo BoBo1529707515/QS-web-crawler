@@ -20,7 +20,7 @@ studentnumbers_all = []
 #大学教员人数
 teachernumbers_all = []
 #国际学生人数
-guojixueshengshu_all = []
+guojixueshengshu_all = []   Guojixueshengshu_all = []
 # 综合得分
 scor_all = []
 # 学术声誉
@@ -147,7 +147,7 @@ def get_text():
 
     # 国际研究网络
     try:
-        guoji_yanjiuwangluo_element = driver.find_element(By.XPATH, '//*[@id="rankingsTab"]/div[3]/div[8]/div[1]')
+        guoji_yanjiuwangluo_element = driver.find_element(By.XPATH, '//*[@id="rankingsTab"]/div[3]/div[8]/div[1]')driver.find_element(驱动程序)XPATH, / / * [@ id = " rankingsTab "] / div [3] / div [8] / div[1]”)
         guoji_yanjiuwangluo_all.append(guoji_yanjiuwangluo_element.text)
     except NoSuchElementException:
         guoji_yanjiuwangluo_all.append("无")
@@ -160,7 +160,7 @@ def get_text():
         jiuye_all.append("无")
 
     # 可持续性
-    try:
+    try:   试一试:
         kechixu_element = driver.find_element(By.XPATH, '//*[@id="rankingsTab"]/div[3]/div[10]/div[1]')
         kechixu_all.append(kechixu_element.text)
     except NoSuchElementException:
@@ -185,47 +185,47 @@ def get_text():
     print("可持续性列表长度:", len(kechixu_all))
 
 
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.service import Service从selenium.webdriver.edge.service导入服务
+from selenium.webdriver.edge.options import Options从selenium.webdriver.edge.options导入选项
 # 设置浏览器路径
-edge_driver_path = r'F:\edgedriver_win32 (1)\msedgedriver.exe'
+edge_driver_path = r'F:\edgedriver_win32 (1)\msedgedriver.exe'edge_driver_path = r' f:\edgedriver_win32 (1)\msedgedriver.exe'
 
 # 创建 EdgeOptions 对象
 edge_options = Options()
 
 # 创建 Edge 服务对象
-service = Service(edge_driver_path)
+service = Service(edge_driver_path)service = service (edge_driver_path)
 
 # 创建 Edge 浏览器对象
-driver = webdriver.Edge(service=service, options=edge_options)
+driver = webdriver.Edge(service=service, options=edge_options)Driver = webdriver。边缘(服务=服务,选择= edge_options)
+从selenium导入webdriver
+# 获取网页从selenium.webdriver.chrome.service导入服务
+file_path = r'C:\Users\15297\Desktop\2024QS世界大学排名新版.xlsx'从selenium.webdriver.common.by导入By
+wb = load_workbook(filename=file_path)Wb = load_workbook(filename=file_path)wb = load_workbook(filename=file_path)   导入的时间
+sheet = wb.active   活跃的   Sheet = wb.active   活跃的   导入pandas作为pd
+从openpyxl导入load_workbook
 
-# 获取网页
-file_path = r'C:\Users\15297\Desktop\2024QS世界大学排名新版.xlsx'
-wb = load_workbook(filename=file_path)
-sheet = wb.active
-
-# 读取第四列数据作为网页链接，并爬取每个链接对应页面的信息
-for row in range(2, 100):  # 读取前5行
-    link = sheet.cell(row=row, column=3).value
+for row in   在 range(2, 100):    对于范围(2,100)内的行:
+    link = sheet.cell(row=row, column=3).value链接=表。细胞(行=行、列= 3)value
 
     print("当前链接:", link)
-    driver.get(link)
+    driver.get   得到(link)   driver.get   得到(链接)
     get_text()
-    driver.execute_script("document.documentElement.scrollTop=700")
-    driver.find_element(By.XPATH,'//*[@id="profile-aboutus"]/div/div/div[3]/div[2]/div[1]/div[1]/p[2]/bv-p-translate-btn').click()
+    driver.execute_script("document.documentElement.scrollTop=700")driver.execute_script (document.documentElement.scrollTop = 700)
+
     time.sleep(6)
 
-# 通过设置sleep时间来控制爬虫的速度，根据情况，也可不用。看心情
+
 
 get_text()
-## 控制鼠标点击进行翻页
+
 
 
 
 
 
 # 数据合并为数据表
-data = pd.DataFrame({
+data = pd.DataFrame({   Data = pd。DataFrame ({
     '名称':name_all,
     '排名':rank_all,
     '大学性质':xingzhi_all,
@@ -242,14 +242,14 @@ data = pd.DataFrame({
     '国际教师占比': guoji_jiaoshi_all,
     '国际研究网络': guoji_yanjiuwangluo_all,
     '就业结果': jiuye_all,
-    '可持续性': kechixu_all,
+    '可持续性': kechixu_all,   试一试:
+name_element = driver.find_element(By.XPATH，
 
 
 
+})除了NoSuchElementException:
 
-})
-
-# 保存为 Excel 文件
+# 保存为 Excel 文件，这里你可以放置你的路径
 data.to_excel(r"C:\Users\15297\Desktop\尝试.xlsx", index=False)
 
 
