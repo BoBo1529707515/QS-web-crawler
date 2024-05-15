@@ -20,7 +20,7 @@ This project is used to crawl detailed information from QS rankings. You can use
 2. Download the corresponding driver for your browser version from [Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 3. Copy the downloaded driver's address to the corresponding location in the code.。
 4. Modify the segment for saving data to your desired saving address.
-5. Adjust the number after `@override for row in range(2, 100):` according to the quantity of data you wish to crawl.5. 根据你希望抓取的数据量，调整' @override for row in range(2,100): '后的数字。
+5. Adjust the number after `@override for row in range(2, 100):` according to the quantity of data you wish to crawl.
 
 **Attention:**   
 1. At the beginning of code execution, there will be a cookie section. Please click on it.
